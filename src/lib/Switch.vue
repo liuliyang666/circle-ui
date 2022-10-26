@@ -1,5 +1,9 @@
 <template>
-  <button @click="toggle" :class="{ checked: value }">
+  <button
+    class="circle-switch"
+    @click="toggle"
+    :class="{ 'circle-checked': value }"
+  >
     <span></span>
   </button>
 </template>
@@ -17,10 +21,10 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.circle-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -37,14 +41,25 @@ button {
     border-radius: $h2 / 2;
     transition: left 250ms;
   }
-  &.checked {
-    background: blue;
+  &.circle-checked {
+    background: #1890ff;
     > span {
       left: calc(100% - #{$h2} - 2px);
     }
   }
   &:focus {
     outline: none;
+  }
+  &:active {
+    > span {
+      width: $h2 + 4px;
+    }
+  }
+  &.circle-checked:active {
+    > span {
+      width: $h2 + 4px;
+      margin-left: -4px;
+    }
   }
 }
 </style>

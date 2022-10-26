@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import "./lib/circle.scss";
 import "./index.scss";
 import { router } from "./router";
 
