@@ -1,5 +1,6 @@
 <template>
-  <button class="circle-button" :class="classes">
+  <button class="circle-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="circle-loadingIndicator"></span>
     <slot />
   </button>
 </template>
@@ -18,6 +19,14 @@ export default {
     level: {
       type: String,
       default: "normal",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props) {
@@ -40,6 +49,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .circle-button {
   box-sizing: border-box;
   height: $h;
@@ -143,6 +153,41 @@ $red: red;
         color: darken($red, 10%);
       }
     }
+  }
+  &.circle-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.circle-theme-link,
+  &.circle-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+    }
+  }
+  > .circle-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: circle-spin 1s infinite linear;
+  }
+}
+@keyframes circle-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
