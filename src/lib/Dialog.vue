@@ -4,11 +4,11 @@
     <div class="circle-dialog-wrapper">
       <div class="circle-dialog">
         <header>
-          标题 <span @click="close" class="circle-dialog-close"></span>
+          <slot name="title" />
+          <span @click="close" class="circle-dialog-close"></span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot name="content" />
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
