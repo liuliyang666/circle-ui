@@ -9,7 +9,7 @@
             <span @click="close" class="circle-dialog-close"></span>
           </header>
           <main>
-            <slot name="content" />
+            <slot name="content" /> 
           </main>
           <footer>
             <Button level="main" @click="ok">OK</Button>
@@ -34,7 +34,7 @@ export default {
     closeOnClickOverlay: {
       type: Boolean,
       default: true,
-    },
+    }, //是否要做到遮盖层关闭，默认是true
     ok: {
       type: Function,
     },
@@ -50,11 +50,13 @@ export default {
       if (props.closeOnClickOverlay) {
         close();
       }
+      //如果开启这个功能就调用这个close，否则什么都不做
     };
     const ok = () => {
       if (props.ok && props.ok !== false) {
         close();
       }
+      //如果ok 存在，且props.ok执行之后的返回值不等于false，就close
     };
     const cancel = () => {
       props.cancel && props.cancel();

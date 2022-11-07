@@ -29,9 +29,9 @@ import { openDialog } from "../lib/openDialog";
 export default {
   components: { Dialog, Button },
   setup() {
-    const x = ref(false);
+    const x = ref(false); //x 的参考值为false
     const toggle = () => {
-      x.value = !x.value;
+      x.value = !x.value; //x 的值等于 x 的值取相反值
     };
     const f1 = () => {
       return false;
