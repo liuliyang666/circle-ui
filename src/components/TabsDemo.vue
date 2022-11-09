@@ -6,6 +6,7 @@
     <Tab title="导航2">内容2</Tab>
   </Tabs>
 </template>
+
 <script lang="ts">
 import Tabs from "../lib/Tabs.vue";
 import Tab from "../lib/Tab.vue";
@@ -16,7 +17,7 @@ export default {
     Tab,
   },
   setup() {
-    const x = ref("导航1");
+    const x = ref("导航2");
     return {
       x,
     };
