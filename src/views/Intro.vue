@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="markdown-body">
     <h1>介绍</h1>
     <p>Circle UI 是一款基于Vue3 和 TypeScript 的UI 组件库</p>
     <p>
