@@ -2,14 +2,14 @@
 
 打开终端运行下列命令:
 
-```bash
-npm install circle-ui
+```
+npm install circle-ui-1
 ```
 
 或
 
-```bash
-yarn add circle-ui
+```
+yarn add circle-ui-1
 ```
 
 下一节：[开始使用](#/doc/get-started)
