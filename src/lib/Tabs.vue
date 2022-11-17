@@ -23,55 +23,50 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup="props, context">
 import Tab from "./Tab.vue";
-import { computed, ref, watchEffect, onMounted } from "vue";
-export default {
-  props: {
-    selected: {
-      type: String,
+import { computed, ref, watchEffect, onMounted, useSlots } from "vue";
+
+/** References: https://vitejs.dev/guide/features.html#typescript */
+import type { Component } from "vue";
+
+const props = defineProps<{ selected: string }>();
+const emit = defineEmits<{
+  (e: "update:selected", title: string): void;
+}>();
+const selectedItem = ref<HTMLDivElement>(null);
+const indicator = ref<HTMLDivElement>(null);
+const container = ref<HTMLDivElement>(null);
+onMounted(() => {
+  watchEffect(
+    () => {
+      const { width } = selectedItem.value.getBoundingClientRect();
+      indicator.value.style.width = width + "px";
+      const { left: left1 } = container.value.getBoundingClientRect();
+      const { left: left2 } = selectedItem.value.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + "px";
     },
-  },
-  setup(props, context) {
-    const selectedItem = ref<HTMLDivElement>(null);
-    const indicator = ref<HTMLDivElement>(null);
-    const container = ref<HTMLDivElement>(null);
-    onMounted(() => {
-      watchEffect(() => {
-        const { width } = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + "px";
-        const { left: left1 } = container.value.getBoundingClientRect();
-        const { left: left2 } = selectedItem.value.getBoundingClientRect();
-        const left = left2 - left1;
-        indicator.value.style.left = left + "px";
-      });
-    });
-    const defaults = context.slots.default();
-    defaults.forEach((tag) => {
-      // @ts-ignore
-      if (tag.type.name !== Tab.name) {
-        throw new Error("Tabs 子标签必须是 Tab");
-      }
-    });
-    const current = computed(() => {
-      return defaults.find((tag) => tag.props.title === props.selected);
-    });
-    const titles = defaults.map((tag) => {
-      return tag.props.title;
-    });
-    const select = (title: string) => {
-      context.emit("update:selected", title);
-    };
-    return {
-      current,
-      defaults,
-      titles,
-      select,
-      selectedItem,
-      indicator,
-      container,
-    };
-  },
+    {
+      flush: "post",
+    }
+  );
+});
+const slots = useSlots();
+const defaults = slots.default();
+defaults.forEach((tag) => {
+  if ((tag.type as Component).name !== Tab.name) {
+    throw new Error("Tabs 子标签必须是 Tab");
+  }
+});
+const current = computed(() => {
+  return defaults.find((tag) => tag.props.title === props.selected);
+});
+const titles = defaults.map((tag) => {
+  return tag.props.title;
+});
+const select = (title: string) => {
+  emit("update:selected", title);
 };
 </script>
 

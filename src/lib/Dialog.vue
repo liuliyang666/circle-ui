@@ -9,67 +9,44 @@
             <span @click="close" class="circle-dialog-close"></span>
           </header>
           <main>
-            <slot name="content" /> 
+            <slot name="content" />
           </main>
           <footer>
-            <Button level="main" @click="ok">OK</Button>
-            <Button @click="cancel">Cancel</Button>
+            <Button level="main" @click="onClickOk">OK</Button>
+            <Button @click="onClickCancel">Cancel</Button>
           </footer>
         </div>
       </div>
     </Teleport>
   </template>
 </template>
-<script lang="ts">
+<script lang="ts" setup="props, context">
 import Button from "./Button.vue";
-export default {
-  components: {
-    Button,
-  },
-  props: {
-    visible: {
-      type: Boolean,
-      default: false,
-    },
-    closeOnClickOverlay: {
-      type: Boolean,
-      default: true,
-    }, //是否要做到遮盖层关闭，默认是true
-    ok: {
-      type: Function,
-    },
-    cancel: {
-      type: Function,
-    },
-  },
-  setup(props, context) {
-    const close = () => {
-      context.emit("update:visible", false);
-    };
-    const onClickOverlay = () => {
-      if (props.closeOnClickOverlay) {
-        close();
-      }
-      //如果开启这个功能就调用这个close，否则什么都不做
-    };
-    const ok = () => {
-      if (props.ok && props.ok !== false) {
-        close();
-      }
-      //如果ok 存在，且props.ok执行之后的返回值不等于false，就close
-    };
-    const cancel = () => {
-      props.cancel && props.cancel();
-      close();
-    };
-
-    return {
-      close,
-      onClickOverlay,
-      ok,
-      cancel,
-    };
-  },
+const props = defineProps<{
+  visible?: boolean;
+  closeOnClickOverlay?: boolean;
+  ok?: () => boolean;
+  cancel?: () => void;
+}>();
+const emit = defineEmits<{
+  (e: "update:visible", visible: boolean): void;
+}>();
+const close = () => {
+  emit("update:visible", false);
+};
+const onClickOverlay = () => {
+  if (props.closeOnClickOverlay) {
+    close();
+  }
+};
+const onClickOk = () => {
+  if (props.ok?.() !== false) {
+    close();
+  }
+};
+const onClickCancel = () => {
+  props.cancel?.();
+  close();
 };
 </script>
 
