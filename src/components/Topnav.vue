@@ -1,15 +1,20 @@
 <template>
   <div class="topnav">
-    <router-link to="/" class="logo">
-      <svg class="icon">
-        <use xlink:href="#icon-zuanshi"></use>
-      </svg>
-    </router-link>
-    <ul class="menu">
-      <li>
-        <router-link to="/doc">文档</router-link>
-      </li>
-    </ul>
+    <div class="logo">
+      <router-link to="/">
+        <svg class="icon">
+          <use xlink:href="#icon-zuanshi"></use>
+        </svg>
+      </router-link>
+    </div>
+    <div class="menu">
+      <ul>
+        <li>
+          <router-link to="/doc">文档</router-link>
+        </li>
+      </ul>
+    </div>
+
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
       <use xlink:href="#icon-liebiao"></use>
     </svg>
@@ -34,33 +39,37 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$color: #007974;
+$color: #e66d8b;
 .topnav {
-  color: $color;
+  color: #f35a80;
+  height: 3rem;
   display: flex;
-  padding: 16px;
   position: fixed;
+  z-index: 30;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 20;
-  justify-content: center;
+  right: 0;
+  justify-content: space-between;
   align-items: center;
-  > .logo {
-    max-width: 6em;
-    margin-right: auto;
-    > svg {
-      width: 32px;
-      height: 32px;
-    }
+  border-bottom: 1px solid white;
+
+  > .logo,
+  .icon {
+    margin-left: 1rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
   }
 
   > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-    > li {
-      margin: 0 1em;
+    > ul {
+      display: flex;
+      > li {
+        margin: 0 2rem;
+      }
     }
   }
   > .toggleAside {
@@ -78,6 +87,9 @@ $color: #007974;
       display: none;
     }
     > .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin: 0 auto;
     }
     > .toggleAside {

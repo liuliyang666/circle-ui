@@ -74,11 +74,12 @@ $aside-index: 10;
   > main {
     flex-grow: 1;
     padding: 16px;
-    background: white;
+    background: rgb(245, 245, 245);
+    border-radius: 2% 2% 2% 2%;
   }
 }
 aside {
-  background: lightblue;
+  background: rgb(250, 216, 222);
   width: 150px;
   padding: 16px 0;
   position: fixed;

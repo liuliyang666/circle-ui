@@ -4,7 +4,7 @@
       <Topnav />
       <div class="banner">
         <h1>Circle UI</h1>
-        <h2>一个厉害的 UI 框架</h2>
+        <h2>一个不一般的 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com">GitHub</a>
           <router-link to="/doc">开始</router-link>
@@ -45,19 +45,16 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-$green: #02bcb0;
+$green: #f35a80;
 $border-radius: 4px;
-$color: #007974;
+$color: #e66d8b;
+
 .topnavAndBanner {
-  background: linear-gradient(
-    145deg,
-    rgba(227, 255, 254, 1) 0%,
-    rgba(183, 233, 230, 1) 100%
-  );
+  background: rgb(250, 216, 222);
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features {
-  margin: 64px auto;
+  margin: 32px auto;
   padding: 0 16px;
 
   @media (min-width: 800px) {
@@ -83,34 +80,35 @@ $color: #007974;
   > ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 
     > li {
-      margin: 16px 0;
-      display: grid;
-      justify-content: start;
-      align-content: space-between;
-      grid-template-areas: "icon title" "icon text";
-      grid-template-columns: 80px auto;
-      grid-template-rows: 1fr auto;
+      margin: 32px 0;
+      display: flex;
+      width: 300px;
+      padding: 0 40px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
       > svg {
-        grid-area: icon;
-        width: 64px;
-        height: 64px;
+        //grid-area: icon;
+        width: 82px;
+        height: 82px;
       }
       > h3 {
-        grid-area: title;
-        font-size: 28px;
+        font-size: 24px;
       }
       > p {
-        grid-area: text;
+        text-align: center;
+        font-size: 16px;
       }
     }
   }
 }
 .banner {
   color: $color;
-  padding: 100px 0;
+  padding: 124px 0;
   display: flex;
   justify-content: center;
   align-items: center;
