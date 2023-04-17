@@ -72,6 +72,9 @@ $aside-index: 10;
     flex-shrink: 0;
   }
   > main {
+    margin-right: 24px;
+    margin-left: 16px;
+    margin-bottom: 24px;
     flex-grow: 1;
     padding: 16px;
     background: rgb(245, 245, 245);
