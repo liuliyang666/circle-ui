@@ -8,30 +8,23 @@
   "module": "dist/lib/circle.es.js",
   "scripts": {
     "dev": "vite",
-    "build:website": "vite build",
-    "build:lib": "vite build -c vite.lib.config.ts"
-  },
-  "resolutions": {
-    "node-sass": "npm:sass@latest"
+    "build": "vite build"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "3.0.3",
-    "github-markdown-css": "4.0.0",
-    "marked": "1.1.1",
-    "prismjs": "1.21.0",
     "rollup-plugin-esbuild": "4.9.3",
     "rollup-plugin-scss": "3.0.0",
     "rollup-plugin-terser": "7.0.2",
-    "sass": "^1.54.5",
+    "sass": "1.54.5",
     "vite": "3.0.9",
+    "marked": "1.1.1",
     "vue": "3.2.37",
-    "vue-router": "4"
+    "vue-router": "4",
+    "prismjs": "1.21.0",
+    "github-markdown-css": "4.0.0"
   },
-  "exports": {
-    ".": {
-      "import": "./dist/lib/circle.es.js",
-      "require": "./dist/lib/circle.umd.js"
-    },
-    "./dist/lib/style.css": "./dist/lib/style.css"
+  "peerDependencies": {
+    "vue": "3.2.37",
+    "github-markdown-css": "4.0.0"
   }
 }
