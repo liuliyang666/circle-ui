@@ -68,7 +68,6 @@ const select = (title: string) => {
 $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
-
 .circle-tabs {
   &-nav {
     display: flex;
@@ -76,10 +75,9 @@ $border-color: #d9d9d9;
     border-bottom: 1px solid $border-color;
     position: relative;
     &-item {
-      border: 1px solid red;
-      margin-right: 8px;
+      padding: 8px 0;
+      margin: 0 16px;
       cursor: pointer;
-
       &:first-child {
         margin-left: 0;
       }

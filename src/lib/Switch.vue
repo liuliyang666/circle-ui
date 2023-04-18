@@ -16,6 +16,7 @@ const toggle = () => {
   emit("update:value", !props.value);
 };
 </script>
+
 <style lang="scss">
 @use "sass:math";
 $h: 22px;
@@ -34,7 +35,7 @@ $h2: $h - 4px;
     height: $h2;
     width: $h2;
     background: white;
-    border-radius: math.div($h, 2);
+    border-radius: math.div($h2, 2);
     transition: all 250ms;
   }
   &.circle-checked {
