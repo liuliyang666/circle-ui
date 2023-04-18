@@ -5,17 +5,17 @@
   <div>
     <Button @click="toggle">toggle</Button>
     <Dialog
-      v-model:visible="x"
+      v-model:visible="isVisible"
       :closeOnClickOverlay="false"
       :ok="f1"
       :cancel="f2"
     >
       <template v-slot:content>
-        <strong>hi</strong>
-        <div>hi2</div>
+        <strong>你好</strong>
+        <div>你真好看！</div>
       </template>
       <template v-slot:title>
-        <strong>加粗的标题</strong>
+        <strong>提示</strong>
       </template>
     </Dialog>
   </div>
@@ -25,7 +25,6 @@
 import Dialog from "../lib/Dialog.vue";
 import { Button } from "../lib/index";
 import { ref } from "vue";
-import { openDialog } from "../lib/openDialog";
 
 export default {
   components: {
@@ -33,16 +32,16 @@ export default {
     Dialog,
   },
   setup() {
-    const x = ref(false); //x 的参考值为false
+    const isVisible = ref(false);
     const toggle = () => {
-      x.value = !x.value; //x 的值等于 x 的值取相反值
+      isVisible.value = !isVisible.value;
     };
     const f1 = () => {
-      return false;
+      return true;
     };
     const f2 = () => {};
     return {
-      x,
+      isVisible,
       toggle,
       f1,
       f2,

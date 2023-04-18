@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <Button @click="showDialog">show</Button>
+    <Button @click="showDialog">toggle</Button>
   </div>
 </template>
 

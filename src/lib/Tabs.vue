@@ -4,11 +4,7 @@
       <div
         class="circle-tabs-nav-item"
         v-for="(t, index) in titles"
-        :ref="
-          (el) => {
-            if (t === selected) selectedItem = el;
-          }
-        "
+        :ref="(el: HTMLDivElement) => { if (t === selected) selectedItem = el }"
         @click="select(t)"
         :class="{ selected: t === selected }"
         :key="index"
@@ -26,10 +22,8 @@
 <script lang="ts" setup="props, context">
 import Tab from "./Tab.vue";
 import { computed, ref, watchEffect, onMounted, useSlots } from "vue";
-
 /** References: https://vitejs.dev/guide/features.html#typescript */
 import type { Component } from "vue";
-
 const props = defineProps<{ selected: string }>();
 const emit = defineEmits<{
   (e: "update:selected", title: string): void;
@@ -74,6 +68,7 @@ const select = (title: string) => {
 $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
+
 .circle-tabs {
   &-nav {
     display: flex;
@@ -81,9 +76,10 @@ $border-color: #d9d9d9;
     border-bottom: 1px solid $border-color;
     position: relative;
     &-item {
-      padding: 8px 0;
-      margin: 0 16px;
+      border: 1px solid red;
+      margin-right: 8px;
       cursor: pointer;
+
       &:first-child {
         margin-left: 0;
       }
