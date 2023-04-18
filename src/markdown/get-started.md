@@ -1,14 +1,14 @@
 # 开始使用
 
-请先[安装](#/doc/install)本组件库。
+请先[安装](#/doc/install)本组件库！！！
 
-然后在你的代码中写入下面的代码
+然后在你的项目中写入下面的代码：
 
 ```
-import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "circle-ui-1"
+import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "circle-ui"
 ```
 
-就可以使用我提供的组件了
+就可以使用该的组件了
 
 ## Vue 单文件组件
 
@@ -20,8 +20,9 @@ import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "circle-ui-1"
     <Button>按钮</Button>
   </div>
 </template>
+
 <script>
-import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "circle-ui-1"
+import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "circle-ui"
 export default {
   components: {Button}
 }

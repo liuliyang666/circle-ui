@@ -1,5 +1,5 @@
 <demo>
-支持 disabled
+支持禁用按钮
 </demo>
 
 <template>
@@ -8,7 +8,7 @@
   <Button theme="text" disabled>禁用按钮</Button>
 </template>
 <script lang="ts">
-import Button from "../lib/Button.vue";
+import { Button } from "../lib/index";
 export default {
   components: {
     Button,

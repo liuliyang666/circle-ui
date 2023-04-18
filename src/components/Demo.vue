@@ -44,9 +44,11 @@ export default {
 
 <style lang="scss" scoped>
 $border-color: #d9d9d9;
+$border-radius: 4px;
 
 .demo {
   border: 1px solid $border-color;
+  border-radius: $border-radius;
   margin: 16px 0 32px;
 
   > h2 {
@@ -69,7 +71,7 @@ $border-color: #d9d9d9;
     border-top: 1px dashed $border-color;
 
     > pre {
-      line-height: 1.1;
+      line-height: 1;
       font-family: Consolas, "Courier New", Courier, monospace;
       margin: 0;
     }

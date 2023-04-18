@@ -4,13 +4,15 @@
 
 <template>
   <div>
-    <Button loading>加载中</Button>
-    <Button>加载完毕</Button>
+    <Button loading>Loading</Button>
+    <Button>加载成功</Button>
   </div>
 </template>
 <script lang="ts">
-import Button from "../lib/Button.vue";
+import { Button } from "../lib/index";
 export default {
-  components: { Button },
+  components: {
+    Button,
+  },
 };
 </script>

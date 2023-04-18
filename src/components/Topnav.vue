@@ -51,7 +51,6 @@ $color: #e66d8b;
   right: 0;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid white;
 
   > .logo,
   .icon {

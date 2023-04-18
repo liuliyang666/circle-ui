@@ -34,25 +34,27 @@ const classes = computed(() => {
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
-$blue: #40a9ff;
+$blue: #088efc;
 $radius: 4px;
 $red: red;
 $grey: grey;
+
 .circle-button {
   box-sizing: border-box;
   height: $h;
-  padding: 0 12px;
+  padding: 0 12px !important;
+  margin: 8px !important;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   white-space: nowrap;
   background: white;
   color: $color;
   border: 1px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
-  transition: background 250ms;
+  transition: 250ms;
   & + & {
     margin-left: 8px;
   }
@@ -71,7 +73,7 @@ $grey: grey;
     border-color: transparent;
     box-shadow: none;
     color: $blue;
-    &.hover,
+    &:hover,
     &:focus {
       color: lighten($blue, 10%);
     }
@@ -102,7 +104,7 @@ $grey: grey;
       border-color: $blue;
       &:hover,
       &:focus {
-        background: darken(white, 5%);
+        background: darken($blue, 10%);
         border-color: darken($blue, 10%);
       }
     }
@@ -120,8 +122,8 @@ $grey: grey;
   &.circle-theme-link {
     &.circle-level-danger {
       color: $red;
-      &.hover,
-      &.focus {
+      &:hover,
+      &:focus {
         color: darken($red, 10%);
       }
     }
@@ -136,8 +138,8 @@ $grey: grey;
     }
     &.circle-level-danger {
       color: $red;
-      &.hover,
-      &.focus {
+      &:hover,
+      &:focus {
         color: darken($red, 10%);
       }
     }
