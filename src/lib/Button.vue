@@ -18,7 +18,7 @@ const props = defineProps<{
   disabled?: boolean;
   loading?: boolean;
 }>();
-const { theme, size, level } = props;
+const { theme = "button", size, level } = props;
 defineEmits<{
   (e: "click", event: MouseEvent): void;
 }>();
@@ -39,11 +39,11 @@ $radius: 4px;
 $red: red;
 $grey: grey;
 
-.circle-button {
+button.circle-button {
   box-sizing: border-box;
   height: $h;
-  padding: 0 12px !important;
-  margin: 8px !important;
+  padding: 0 12px;
+  margin: 8px;
   cursor: pointer;
   display: inline-flex;
   justify-content: center;

@@ -1,10 +1,10 @@
 import Dialog from "./Dialog.vue";
-import { createApp, h } from "vue";
+import { VNode, createApp, h } from "vue";
 
 interface Options {
-  title: string;
+  title: string | VNode;
   content?: string;
-  ok?: () => boolean;
+  ok?: () => boolean | void;
   cancel?: () => void;
 }
 
