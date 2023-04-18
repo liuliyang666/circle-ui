@@ -1,5 +1,5 @@
 rm -rf dist &&
-yarn build:website &&
+yarn build &&
 cd dist &&
 git init &&
 git add . &&
